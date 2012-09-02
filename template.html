@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sweet</title>
+	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+	
+<body class="index">
+	<div class="container">
+		<ol class="timeline clearfix">
+			<li class="spine">
+				<a href="#" title="This is the Spine of Facebook Timline. You can Add Custom Events here"></a>
+			</li>
+
+			<li class="left">
+				<i class="pointer"></i>
+				<div class="content">
+					<div class="story">
+						<div class="profile">
+							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="meta">
+								<h4><a href="#">Vinay</a></h4>
+								<p>20 hours ago via Twitter</p>
+							</div>
+										
+						</div>
+						<p> Just wow.. Harry potter and voldemort at #London2012 opening</p>
+					</div>
+					<ol class="actions">
+						<li><a href="#">Like</a></li>
+						<li><a href="#">Comment</a></li>
+						<li><a href="#">@artminister on Twitter</a></li>
+					</ol>
+				</div>
+			</li>
+			<li class="highlight">
+				<i class="pointer"></i>
+				<div class="content">
+					<div class="story">
+						<div class="profile">
+							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="meta">
+								<h4><a href="#">Vinay</a></h4>
+								<p>20 hours ago via Twitter</p>
+							</div>
+						</div>
+						<p><strong>A highlighted story</strong></p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<ol class="actions">
+						<li><a href="#">Like</a></li>
+						<li><a href="#">Comment</a></li>
+						<li><a href="#">@artminister on Twitter</a></li>
+					</ol>
+				</div>
+			</li>
+			<li class="right">
+				<i class="pointer"></i>
+				<div class="content">
+					<div class="story">
+						<div class="profile">
+							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="meta">
+								<h4><a href="#">Vinay</a></h4>
+								<p>20 hours ago via Twitter</p>
+							</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+						<div class="photo">
+							<img src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash3/c38.0.403.403/p403x403/148491_10150317604135274_5316342_n.jpg" alt="">
+						</div>
+					</div>
+					<ol class="actions">
+						<li><a href="#">Like</a></li>
+						<li><a href="#">Comment</a></li>
+						<li><a href="#">@artminister on Twitter</a></li>
+					</ol>
+				</div>
+			</li>
+			<li class="left">
+				<i class="pointer"></i>
+				<div class="content">
+					<div class="story">
+						<div class="profile">
+							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="meta">
+								<h4><a href="#">Vinay</a></h4>
+								<p>20 hours ago via Twitter</p>
+							</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+						<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<ol class="actions">
+						<li><a href="#">Like</a></li>
+						<li><a href="#">Comment</a></li>
+						<li><a href="#">@artminister on Twitter</a></li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+	</div>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	// /*
+		// Simple infinite Scrolling
+		
+		$(function(){
+			
+				var $timeline = $('.timeline'),
+						$spinner = $('#Spinner').hide();
+			
+				function loadMore(){
+					
+					$(window).unbind('scroll.posts');
+					
+					$spinner.show();
+					
+					$.ajax({
+						url: "template_more.html",
+						success: function(html){
+								if(html){
+										$timeline.append(html);
+										$spinner.hide();
+								}else{
+										$spinner.html('<p>No more posts to show.</p>');
+								}
+								
+								$(window).bind('scroll.posts',scrollEvent);
+						}
+					});
+				}
+			
+			
+				//lastAddedLiveFunc();
+				$(window).bind('scroll.posts',scrollEvent);
+				
+				function scrollEvent(){
+					var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+					var  scrolltrigger = 0.95;
+
+					if  ((wintop/(docheight-winheight)) > scrolltrigger)  loadMore();
+				}
+				
+		});
+	// */
+	</script>
+</body>
+</html>

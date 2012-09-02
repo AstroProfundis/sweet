@@ -1,34 +1,278 @@
-* {
+@charset "utf-8";
+
+/**
+ * CSS Reset from "http: //meyerweb.com/eric/tools/css/reset/"
+ * v2.0 | 20110126
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+	border: 0;
 	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
-ul,
-ol,
-li {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
 	list-style: none;
 }
 
-em,
-i {
-	font-style: normal;
+blockquote, q {
+	quotes: none;
 }
 
-img {
-	border: none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 
-input,
-img {
-	vertical-align: middle;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
+
+/**
+ * Main Style
+ */
+
+body {
+	background: #E7EBF2;
+	font-size: 12px; 
+	line-height: 1.4;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+.container {
+	width: 901px;
+	margin: 20px auto;
+}
+
+a, a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.timeline {
+	background: url(img/line.png) top repeat-y;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+.timeline > li {
+	float: left;
+	clear: left;
+	width: 436px;
+	margin-bottom: 15px;
+	position: relative;
+	z-index: 2;
+}
+
+.timeline > .right {
+	float: right;
+	clear: right;
+}
+
+.timeline .pointer {
+	background: url(img/icons-4.png) -41px -28px no-repeat;
+	width: 19px;
+	height: 15px;
+	position: absolute;
+	right: -18px;
+	top: 20px;
+}
+
+.timeline .right > .pointer {
+	left: -18px;
+	right: auto;
+	background-position: -61px -28px;
+}
+
+.timeline > .left + .right > .pointer {
+	top: 40px;
+}
+
+.timeline > .right + li > .pointer {
+	top: 40px;
+}
+
+.timeline .highlight {
+	clear: both;
+	width: auto;
+	float: none;
+}
+
+.timeline .highlight .pointer {
+	background-image: url(img/icons-5.png);
+	background-position: -26px -28px;
+	height: 21px;
+	width: 15px;
+	left: 50%;
+	top: -20px !important;
+	margin-left: -7px;
+}
+
+.timeline .spine {
+	position: absolute;
+	left: 436px;
+	width: 29px;
+	height: 100%;
+	z-index: 1;
+}
+
+.timeline .spine > a,
+.timeline .spine a:visited {
+	display: block;
+	height: 100%;
+}
+
+.content {
+	background: #fff;
+	padding: 5px;
+	border: 1px #C4CDE0 solid;
+	border-radius: 3px;
+}
+
+.story {
+	padding: 10px;
+}
+
+.profile {
+	border-bottom: 1px #ccc solid;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	font-size: 11px;
+}
+
+.profile .meta {
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 5px;
+}
+
+.profile .meta > p {
+	margin: 0;
+}
+
+.photo {
+	margin: 0 -10px -5px -10px;
+}
+
+.controls {
+	background: #F2F2F2;
+	margin: 5px -5px -5px -5px;
+	list-style: none;
+	padding: 4px;
+	border-top: 1px #E6E6E6 solid;
+}
+
+.controls > li {
+	display: inline-block;
+}
+
+.controls .post {
+	float: right;
+}
+
+.actions {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.actions > li {
+	display: inline;
+	border-left: 1px #E5E5E5 solid;
+	float: left;
+}
+
+.actions > li:first-child {
+	border-left: none;
+}
+
+.actions > li > a {
+	padding: 5px 5px;
+	margin: 0 3px;
+	display: inline-block;
+}
+
+.actions > li > a:hover {
+	background: #EBEEF4;
+	text-decoration: none;
+}
+
+.actions .active > a {
+	color: #000;
+}
+
+.actions {
+	background: #EDEFF4;
+	list-style: none;
+	padding: 5px 10px;
+	margin: 0;
+	font-size: 11px;
+}
+
+.actions > li {
+	display: inline;
+}
+
+.actions > li:before {
+	content: " · ";
+}
+
+.actions > li:first-child:before {
+	content: '';
+}
+
+#Spinner {
+	text-align: center;
+	padding: 10px 0;
+}
