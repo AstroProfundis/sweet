@@ -1,14 +1,16 @@
 <?php
 
 	/**
-	 * 按要求将 Twiiter API 构建为 Sweet 所需格式
+	 * Construct single Sweet, transform from Twitter API
 	 * @param array $tweet
-	 * @param boolean $is_retweet
+	 * @param boolean $position (left: FALSE, right: TRUE)
 	 * @return array
 	 */
-	function construct($tweet, $is_retweet = FALSE) {
+	function construct($tweet, $position = FALSE) {
 
+		// Basic Structure
 		$output = array(
+			'position' => $position,
 			'id' => $tweet['id_str'],
 			'created_at' => $tweet['created_at'],
 			'text' => $tweet['text'],
@@ -24,6 +26,7 @@
 			'photo' => NULL,
 		);
 
+		// Replace links
 		if (!empty($tweet['entities']['urls'])) {
 			$u_search = array();
 			$u_replace = array();
@@ -36,7 +39,8 @@
 			$output['text'] = str_replace($u_search, $u_replace, $tweet['text']);
 		}
 
-		if ($is_retweet === FALSE && isset($tweet['retweeted_status'])) {
+		// Construct retweeted status
+		if (isset($tweet['retweeted_status'])) {
 			$output['retweeted'] = construct($tweet['retweeted_status'], TRUE);
 		}
 

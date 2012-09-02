@@ -1,3 +1,9 @@
+<?php
+	require('config.php');
+	require('common.php');
+
+	
+?>
 <!DOCTYPE html>
 <html>
 <head>

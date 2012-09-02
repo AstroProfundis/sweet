@@ -12,7 +12,6 @@
 			<li class="spine">
 				<a href="#" title="This is the Spine of Facebook Timline. You can Add Custom Events here"></a>
 			</li>
-
 			<li class="left">
 				<i class="pointer"></i>
 				<div class="content">
@@ -105,45 +104,38 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript">
 	// /*
-		// Simple infinite Scrolling
-		
-		$(function(){
+		$(document).ready(function() {
+				var $timeline = $('.timeline');
 			
-				var $timeline = $('.timeline'),
-						$spinner = $('#Spinner').hide();
-			
-				function loadMore(){
-					
-					$(window).unbind('scroll.posts');
-					
-					$spinner.show();
+				function loadMore() {
+					$(window).unbind('scroll.sweet');
 					
 					$.ajax({
 						url: "template_more.html",
-						success: function(html){
-								if(html){
-										$timeline.append(html);
-										$spinner.hide();
-								}else{
-										$spinner.html('<p>No more posts to show.</p>');
-								}
-								
-								$(window).bind('scroll.posts',scrollEvent);
+						success: function(html) {
+							if (html) {
+								$timeline.append(html);
+							} else {
+								// $spinner.html('<p>No more posts to show.</p>');
+							}
+							
+							$(window).bind('scroll.sweet', scrollEvent);
 						}
 					});
 				}
-			
-			
-				//lastAddedLiveFunc();
-				$(window).bind('scroll.posts',scrollEvent);
 				
-				function scrollEvent(){
-					var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
-					var  scrolltrigger = 0.95;
+				function scrollEvent() {
+					var wintop = $(window).scrollTop(),
+						docheight = $(document).height(),
+						winheight = $(window).height(),
+						scrolltrigger = 0.95;
 
-					if  ((wintop/(docheight-winheight)) > scrolltrigger)  loadMore();
+					if ((wintop / (docheight - winheight)) > scrolltrigger) {
+						loadMore();
+					}
 				}
-				
+
+				$(window).bind('scroll.sweet', scrollEvent);
 		});
 	// */
 	</script>
