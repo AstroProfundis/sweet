@@ -10,7 +10,7 @@
 
 		// Basic Structure
 		$output = array(
-			'position' => $position,
+			'position' => $position ? 'right' : 'left',
 			'id' => $tweet['id_str'],
 			'created_at' => $tweet['created_at'],
 			'text' => $tweet['text'],
@@ -47,3 +47,4 @@
 		return $output;
 
 	}
+
