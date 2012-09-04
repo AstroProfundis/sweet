@@ -182,10 +182,19 @@ a:hover, a:focus {
 }
 
 .profile {
-	border-bottom: 1px #ccc solid;
+	border-bottom: 1px #CCC solid;
 	padding-bottom: 5px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	font-size: 11px;
+}
+
+.profile .avatar {
+	display: inline-block;
+}
+
+.profile .avatar img {
+	width: 32px;
+	height: 32px;
 }
 
 .profile .meta {
@@ -216,60 +225,6 @@ a:hover, a:focus {
 
 .controls .post {
 	float: right;
-}
-
-.actions {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	font-weight: bold;
-	font-size: 11px;
-}
-
-.actions > li {
-	display: inline;
-	border-left: 1px #E5E5E5 solid;
-	float: left;
-}
-
-.actions > li:first-child {
-	border-left: none;
-}
-
-.actions > li > a {
-	padding: 5px 5px;
-	margin: 0 3px;
-	display: inline-block;
-}
-
-.actions > li > a:hover {
-	background: #EBEEF4;
-	text-decoration: none;
-}
-
-.actions .active > a {
-	color: #000;
-}
-
-.actions {
-	background: #EDEFF4;
-	list-style: none;
-	padding: 5px 10px;
-	margin: 0;
-	font-size: 11px;
-}
-
-.actions > li {
-	display: inline;
-}
-
-.actions > li:before {
-	content: " · ";
-}
-
-.actions > li:first-child:before {
-	content: '';
 }
 
 #Spinner {

@@ -35,7 +35,9 @@
 				<div class="content">
 					<div class="story">
 						<div class="profile">
-							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="avatar">
+								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							</div>
 							<div class="meta">
 								<h4><a href="#">Vinay</a></h4>
 								<p>20 hours ago via Twitter</p>
@@ -44,11 +46,6 @@
 						</div>
 						<p> Just wow.. Harry potter and voldemort at #London2012 opening</p>
 					</div>
-					<ol class="actions">
-						<li><a href="#">Like</a></li>
-						<li><a href="#">Comment</a></li>
-						<li><a href="#">@artminister on Twitter</a></li>
-					</ol>
 				</div>
 			</li>
 			<li class="highlight">
@@ -56,7 +53,9 @@
 				<div class="content">
 					<div class="story">
 						<div class="profile">
-							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="avatar">
+								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							</div>
 							<div class="meta">
 								<h4><a href="#">Vinay</a></h4>
 								<p>20 hours ago via Twitter</p>
@@ -65,11 +64,6 @@
 						<p><strong>A highlighted story</strong></p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
-					<ol class="actions">
-						<li><a href="#">Like</a></li>
-						<li><a href="#">Comment</a></li>
-						<li><a href="#">@artminister on Twitter</a></li>
-					</ol>
 				</div>
 			</li>
 			<li class="right">
@@ -77,7 +71,9 @@
 				<div class="content">
 					<div class="story">
 						<div class="profile">
-							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="avatar">
+								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							</div>
 							<div class="meta">
 								<h4><a href="#">Vinay</a></h4>
 								<p>20 hours ago via Twitter</p>
@@ -88,11 +84,6 @@
 							<img src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash3/c38.0.403.403/p403x403/148491_10150317604135274_5316342_n.jpg" alt="">
 						</div>
 					</div>
-					<ol class="actions">
-						<li><a href="#">Like</a></li>
-						<li><a href="#">Comment</a></li>
-						<li><a href="#">@artminister on Twitter</a></li>
-					</ol>
 				</div>
 			</li>
 			<li class="left">
@@ -100,7 +91,9 @@
 				<div class="content">
 					<div class="story">
 						<div class="profile">
-							<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							<div class="avatar">
+								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
+							</div>
 							<div class="meta">
 								<h4><a href="#">Vinay</a></h4>
 								<p>20 hours ago via Twitter</p>
@@ -109,11 +102,6 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
 						<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
-					<ol class="actions">
-						<li><a href="#">Like</a></li>
-						<li><a href="#">Comment</a></li>
-						<li><a href="#">@artminister on Twitter</a></li>
-					</ol>
 				</div>
 			</li>
 		</ol>
@@ -128,20 +116,16 @@
 			<div class="content">
 				<div class="story">
 					<div class="profile">
-						<a href="#"><img src="{{user.avatar}}" alt=""></a>
+						<div class="avatar">
+							<a href="#"><img src="{{user.avatar}}" alt=""></a>
+						</div>
 						<div class="meta">
 							<h4><a href="#">{{user.screen_name}}</a></h4>
 							<p>20 hours ago via {{{source}}}</p>
 						</div>
-									
 					</div>
 					<p>{{text}}</p>
 				</div>
-				<ol class="actions">
-					<li><a href="#">Like</a></li>
-					<li><a href="#">Comment</a></li>
-					<li><a href="#">@artminister on Twitter</a></li>
-				</ol>
 			</div>
 		</li>
 	</script>
