@@ -1,5 +1,7 @@
 <?php
 
+	date_default_timezone_set('Asia/Shanghai');
+
 	/**
 	 * Construct single Sweet, transform from Twitter API
 	 * @param array $tweet
@@ -8,11 +10,21 @@
 	 */
 	function construct($tweet, $position = FALSE) {
 
+		// Display time
+		$current = strtotime($tweet['created_at']);
+
+		$date_format = date('z', $current) === date('z', time()) ? 'G:i' : 'j M';
+
+		if (date('Y', $current) !== date('Y', time())) {
+			$date_format .= ' y';
+		}
+
 		// Basic Structure
 		$output = array(
 			'position' => $position ? 'right' : 'left',
 			'id' => $tweet['id_str'],
-			'created_at' => $tweet['created_at'],
+			'rel_time' => date($date_format, $current),
+			'abs_time' => date('G:i - j M y', $current),
 			'text' => $tweet['text'],
 			'source' => $tweet['source'],
 			'user' => array(
