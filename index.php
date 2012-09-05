@@ -27,83 +27,7 @@
 <body class="index">
 	<div class="container">
 		<ol class="timeline clearfix">
-			<li class="spine">
-				<a href="#" title="This is the Spine of Facebook Timline. You can Add Custom Events here"></a>
-			</li>
-			<li class="left">
-				<i class="pointer"></i>
-				<div class="content">
-					<div class="story">
-						<div class="profile">
-							<div class="avatar">
-								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
-							</div>
-							<div class="meta">
-								<h4><a href="#">Vinay</a></h4>
-								<p>20 hours ago via Twitter</p>
-							</div>
-										
-						</div>
-						<p> Just wow.. Harry potter and voldemort at #London2012 opening</p>
-					</div>
-				</div>
-			</li>
-			<li class="highlight">
-				<i class="pointer"></i>
-				<div class="content">
-					<div class="story">
-						<div class="profile">
-							<div class="avatar">
-								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
-							</div>
-							<div class="meta">
-								<h4><a href="#">Vinay</a></h4>
-								<p>20 hours ago via Twitter</p>
-							</div>
-						</div>
-						<p><strong>A highlighted story</strong></p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
-				</div>
-			</li>
-			<li class="right">
-				<i class="pointer"></i>
-				<div class="content">
-					<div class="story">
-						<div class="profile">
-							<div class="avatar">
-								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
-							</div>
-							<div class="meta">
-								<h4><a href="#">Vinay</a></h4>
-								<p>20 hours ago via Twitter</p>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-						<div class="photo">
-							<img src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash3/c38.0.403.403/p403x403/148491_10150317604135274_5316342_n.jpg" alt="">
-						</div>
-					</div>
-				</div>
-			</li>
-			<li class="left">
-				<i class="pointer"></i>
-				<div class="content">
-					<div class="story">
-						<div class="profile">
-							<div class="avatar">
-								<a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/186035_897940273_1597318_q.jpg" width="32" height="32" alt=""></a>
-							</div>
-							<div class="meta">
-								<h4><a href="#">Vinay</a></h4>
-								<p>20 hours ago via Twitter</p>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-						<p>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
-				</div>
-			</li>
+			
 		</ol>
 	</div>
 	
@@ -111,23 +35,31 @@
 	<script src="handlebars.js"></script>
 	<script src="script.js"></script>
 	<script id="entry-template" type="text/x-handlebars-template">
+		{{#each this}}
 		<li class="{{position}}}">
 			<i class="pointer"></i>
 			<div class="content">
-				<div class="story">
-					<div class="profile">
-						<div class="avatar">
-							<a href="#"><img src="{{user.avatar}}" alt=""></a>
-						</div>
-						<div class="meta">
-							<h4><a href="#">{{user.screen_name}}</a></h4>
-							<p>20 hours ago via {{{source}}}</p>
-						</div>
-					</div>
-					<p>{{text}}</p>
+			{{#if retweeted}}
+				<div class="avatar">
+					<a href="#"><img src="{{retweeted.user.avatar}}" alt=""></a>
 				</div>
+				<div class="tweet">{{retweeted.text}}</div>
+				<div class="meta">
+					<span class="time" title="{{retweeted.abs_time}}">{{retweeted.rel_time}}</span> <span class="source">via {{{source}}}</span>
+				</div>
+				<i class="retweeted"></i>
+			{{else}}
+				<div class="avatar">
+					<a href="#"><img src="{{user.avatar}}" alt=""></a>
+				</div>
+				<div class="tweet">{{text}}</div>
+				<div class="meta">
+					<span class="time" title="{{abs_time}}">{{rel_time}}</span> <span class="source">via {{{source}}}</span>
+				</div>
+			{{/if}}
 			</div>
 		</li>
+		{{/each}}
 	</script>
 </body>
 </html>
