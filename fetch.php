@@ -4,6 +4,8 @@
 	include_once('libs/twitter.php');
 	include_once('common.php');
 
+	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
+
 	// /*
 	$data = json_decode(file_get_contents('data_1.json'), TRUE);
 
@@ -25,21 +27,24 @@
 
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
-	$timeline_a = $connection->get('statuses/user_timeline', array(
+	$post_data = array(
 		'screen_name' => 'NetPuter',
 		'count' => $config['count'],
 		'since_id' => $config['since_id'],
-		'include_rts' => 1,
-		'include_entities' => 1,
-	));
+		'include_rts' => true,
+		'include_entities' => true,
+		'exclude_replies' => true,
+	);
 
-	$timeline_b = $connection->get('statuses/user_timeline', array(
-		'screen_name' => 'Regulusw',
-		'count' => $config['count'],
-		'since_id' => $config['since_id'],
-		'include_rts' => 1,
-		'include_entities' => 1,
-	));
+	if (!is_null($max_id)) {
+		$post_data['max_id'] = $max_id;
+	}
+
+	$timeline_a = $connection->get('statuses/user_timeline', $post_data);
+
+	$post_data['screen_name'] = 'Regulusw';
+
+	$timeline_b = $connection->get('statuses/user_timeline', $post_data);
 
 	$content = array();
 	
@@ -48,7 +53,7 @@
 	}
 
 	foreach ($timeline_b as $tweet) {
-		$content[$tweet['id_str']] = construct($tweet);
+		$content[$tweet['id_str']] = construct($tweet, TRUE);
 	}
 
 	krsort($content);

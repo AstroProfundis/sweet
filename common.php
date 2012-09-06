@@ -75,3 +75,13 @@
 
 	}
 
+	/**
+	 * Minus one from Twitter ID
+	 * @param string $id
+	 * @return string
+	 */
+	function minus_one($id) {
+		$last = strlen($id) - 1;
+		$id[$last] = $id[$last] - 1;
+		return $id;
+	}
