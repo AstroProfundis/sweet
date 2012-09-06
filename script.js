@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	var timeline = $('.timeline'),
+	var timeline = $('#timeline'),
 		source = $('#entry-template').html(),
 		template = Handlebars.compile(source),
 		tweet = null;
@@ -17,6 +17,9 @@ $(document).ready(function() {
 		
 		$.ajax({
 			url: 'fetch.php',
+			data: {
+				max_id: $("#timeline li:last-child").data('id')
+			},
 			dataType: 'json',
 			success: function(json) {
 				if (json) {
