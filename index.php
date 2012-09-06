@@ -1,8 +1,8 @@
 <?php
 
-	require_once('config.php');
-	require_once('libs/twitter.php');
-	require_once('common.php');
+	include_once('config.php');
+	include_once('libs/twitter.php');
+	include_once('common.php');
 
 	/*
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
@@ -41,20 +41,26 @@
 			<div class="content">
 			{{#if retweeted}}
 				<div class="avatar">
-					<a href="#"><img src="{{retweeted.user.avatar}}" alt=""></a>
+					<a href="https://twitter.com/{{retweeted.user.screen_name}}"><img src="{{retweeted.user.avatar}}" alt=""></a>
 				</div>
-				<div class="tweet">{{retweeted.text}}</div>
+				<div class="tweet">{{{retweeted.text}}}</div>
+				{{#if retweeted.photo}}
+				<div class="photo"><img src="{{retweeted.photo}}" /></div>
+				{{/if}}
 				<div class="meta">
-					<span class="time" title="{{retweeted.abs_time}}">{{retweeted.rel_time}}</span> <span class="source">via {{{source}}}</span>
+					<span class="time"><a href="https://twitter.com/{{retweeted.user.screen_name}}/status/{{retweeted.id}}" title="{{retweeted.abs_time}}">{{retweeted.rel_time}}</a></span> <span class="source">via {{{retweeted.source}}}</span>
 				</div>
 				<i class="retweeted"></i>
 			{{else}}
 				<div class="avatar">
-					<a href="#"><img src="{{user.avatar}}" alt=""></a>
+					<a href="https://twitter.com/{{user.screen_name}}"><img src="{{user.avatar}}" alt=""></a>
 				</div>
-				<div class="tweet">{{text}}</div>
+				<div class="tweet">{{{text}}}</div>
+				{{#if photo}}
+				<div class="photo"><img src="{{photo}}" /></div>
+				{{/if}}
 				<div class="meta">
-					<span class="time" title="{{abs_time}}">{{rel_time}}</span> <span class="source">via {{{source}}}</span>
+					<span class="time"><a href="https://twitter.com/{{user.screen_name}}/status/{{id}}" title="{{abs_time}}">{{rel_time}}</a></span> <span class="source">via {{{source}}}</span>
 				</div>
 			{{/if}}
 			</div>

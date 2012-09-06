@@ -38,17 +38,32 @@
 			'photo' => NULL,
 		);
 
-		// Replace links
+		// Detect Twitter photos
+		if (!empty($tweet['entities']['media'])) {
+			foreach ($tweet['entities']['media'] as $m) {
+				$output['photo'] = $m['media_url'];
+
+				$output['text'] = str_replace($m['url'], NULL, $output['text']);
+			}
+		}
+
+		// Replace links and detect Instagram photos
 		if (!empty($tweet['entities']['urls'])) {
 			$u_search = array();
 			$u_replace = array();
 
 			foreach ($tweet['entities']['urls'] as $u) {
 				$u_search[] = $u['url'];
-				$u_replace[] = $u['expanded_url'];
+				$u_replace[] = '<a href="'.$u['expanded_url'].'">'.$u['display_url'].'</a>';
+
+				if (preg_match_all('#instagr\.am\/p\/([_-\d\w]+)#i', $u['expanded_url'], $matches, PREG_PATTERN_ORDER) > 0) {
+					foreach ($matches[1] as $match) {
+						$output['photo'] = sprintf('http://instagr.am/p/%s/media/?size=l', $match);
+					}
+				}
 			}
 
-			$output['text'] = str_replace($u_search, $u_replace, $tweet['text']);
+			$output['text'] = trim(str_replace($u_search, $u_replace, $tweet['text']));
 		}
 
 		// Construct retweeted status
