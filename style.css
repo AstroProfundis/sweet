@@ -50,18 +50,12 @@ q:before, q:after {
 	content: none;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
 /**
  * Main Style
  */
 
 body {
-	background: #E7EBF2;
+	background: #FFF0F0;
 	font-size: 12px; 
 	line-height: 1.4;
 	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
@@ -73,7 +67,7 @@ body {
 }
 
 a, a:visited {
-	color: #3B5998;
+	color: #C35966;
 	text-decoration: none;
 }
 
@@ -118,7 +112,7 @@ a:hover, a:focus {
 }
 
 .timeline .pointer {
-	background: url(img/icons-4.png) -41px -28px no-repeat;
+	background: url(img/sprites.png) 0 0 no-repeat;
 	width: 19px;
 	height: 15px;
 	position: absolute;
@@ -129,7 +123,7 @@ a:hover, a:focus {
 .timeline .right > .pointer {
 	left: -18px;
 	right: auto;
-	background-position: -61px -28px;
+	background-position: -19px 0;
 }
 
 .timeline > .left + .right > .pointer {
@@ -157,7 +151,7 @@ a:hover, a:focus {
 .content {
 	background: #fff;
 	padding: 10px 10px 10px 10px;
-	border: 1px #C4CDE0 solid;
+	border: 1px solid #C35966;
 	border-radius: 3px;
 }
 
@@ -168,9 +162,9 @@ a:hover, a:focus {
 	width: 48px;
 	height: 48px;
 	padding: 5px;
-	border: 1px solid #ABABAB;
+	border: 1px solid #C35966;
 	border-radius: 100px;
-	background: #F9F9F9;
+	background: #FFF;
 }
 
 .right .avatar {
@@ -186,14 +180,14 @@ a:hover, a:focus {
 
 .tweet {
 	margin-bottom: 10px;
-	padding: 0 0 0 30px;
+	padding: 0 10px 0 30px;
 	font-size: 16px;
 	word-wrap: break-word; 
 	word-break: normal; 
 }
 
 .right .tweet {
-	padding: 0 30px 0 0;
+	padding: 0 30px 0 10px;
 }
 
 .photo {
@@ -207,7 +201,7 @@ a:hover, a:focus {
 .meta {
 	padding: 5px 10px;
 	font-size: 12px;
-	background: #EDEFF4;
+	background: #FFF0F0;
 	overflow: hidden;
 }
 
@@ -247,11 +241,11 @@ a:hover, a:focus {
 	right: 1px;
 	width: 24px;
 	height: 24px;
-	background: url(img/retweet.png) no-repeat 0 0;
+	background: url(img/sprites.png) no-repeat 0 -15px;
 }
 
 .right .retweeted {
 	left: 1px;
 	right: auto;
-	background-position: -24px 0;
+	background-position: -24px -15px;
 }
