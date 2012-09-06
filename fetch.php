@@ -1,8 +1,8 @@
 <?php
 
-	require_once('config.php');
-	require_once('libs/twitter.php');
-	require_once('common.php');
+	include_once('config.php');
+	include_once('libs/twitter.php');
+	include_once('common.php');
 
 	// /*
 	$data = json_decode(file_get_contents('data_1.json'), TRUE);
