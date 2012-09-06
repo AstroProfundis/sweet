@@ -149,10 +149,14 @@ a:hover, a:focus {
 }
 
 .content {
-	background: #fff;
+	background: #FFF;
 	padding: 10px 10px 10px 10px;
 	border: 1px solid #C35966;
 	border-radius: 3px;
+}
+
+.timeline > li:hover .content {
+	background: #FFF8F8;
 }
 
 .avatar {
@@ -165,6 +169,8 @@ a:hover, a:focus {
 	border: 1px solid #C35966;
 	border-radius: 100px;
 	background: #FFF;
+	-webkit-transition: -webkit-transform .2s ease-out;
+	transition: transform .2s ease-out;
 }
 
 .right .avatar {
@@ -176,6 +182,16 @@ a:hover, a:focus {
 	width: 48px;
 	height: 48px;
 	border-radius: 100px;
+}
+
+.timeline > .left:hover .avatar {
+	-webkit-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+}
+
+.timeline > .right:hover .avatar {
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
 }
 
 .tweet {

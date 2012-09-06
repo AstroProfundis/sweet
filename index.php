@@ -26,22 +26,22 @@
 </head>
 <body class="index">
 	<div class="container">
-		<ol class="timeline clearfix">
+		<ol class="timeline clearfix" id="timeline">
 			
 		</ol>
 	</div>
 	
-	<script src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
+	<script src="jquery.min.js"></script>
 	<script src="handlebars.js"></script>
 	<script src="script.js"></script>
 	<script id="entry-template" type="text/x-handlebars-template">
 		{{#each this}}
-		<li class="{{position}}}">
+		<li class="{{position}}}" data-id="{{id}}">
 			<i class="pointer"></i>
 			<div class="content">
 			{{#if retweeted}}
 				<div class="avatar">
-					<a href="https://twitter.com/{{retweeted.user.screen_name}}"><img src="{{retweeted.user.avatar}}" alt=""></a>
+					<a href="https://twitter.com/{{retweeted.user.screen_name}}" title="@{{retweeted.user.screen_name}}"><img src="{{retweeted.user.avatar}}" alt=""></a>
 				</div>
 				<div class="tweet">{{{retweeted.text}}}</div>
 				{{#if retweeted.photo}}
@@ -53,7 +53,7 @@
 				<i class="retweeted"></i>
 			{{else}}
 				<div class="avatar">
-					<a href="https://twitter.com/{{user.screen_name}}"><img src="{{user.avatar}}" alt=""></a>
+					<a href="https://twitter.com/{{user.screen_name}}" title="@{{user.screen_name}}"><img src="{{user.avatar}}" alt=""></a>
 				</div>
 				<div class="tweet">{{{text}}}</div>
 				{{#if photo}}
