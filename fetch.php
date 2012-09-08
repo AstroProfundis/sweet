@@ -28,7 +28,7 @@
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
 	$post_data = array(
-		'screen_name' => 'NetPuter',
+		'screen_name' => $config['user_a'],
 		'count' => $config['count'],
 		'since_id' => $config['since_id'],
 		'include_rts' => true,
@@ -42,7 +42,7 @@
 
 	$timeline_a = $connection->get('statuses/user_timeline', $post_data);
 
-	$post_data['screen_name'] = 'Regulusw';
+	$post_data['screen_name'] = $config['user_b'];
 
 	$timeline_b = $connection->get('statuses/user_timeline', $post_data);
 
