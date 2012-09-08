@@ -209,8 +209,8 @@ body {
 }
 
 .timeline > .right:hover .avatar {
-	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
+	-webkit-transform: rotate(390deg);
+	transform: rotate(390deg);
 }
 
 .timeline .tweet {
