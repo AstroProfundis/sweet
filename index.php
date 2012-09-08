@@ -1,20 +1,6 @@
 <?php
 
 	include_once('config.php');
-	include_once('libs/twitter.php');
-	include_once('common.php');
-
-	/*
-	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
-
-	$user_a = $connection->get('users/show', array(
-		'screen_name' => 'NetPuter',
-	));
-
-	$user_b = $connection->get('users/show', array(
-		'screen_name' => 'Regulusw',
-	));
-	*/
 
 ?>
 <!DOCTYPE html>
@@ -26,9 +12,16 @@
 </head>
 <body class="index">
 	<div class="container">
-		<ol class="timeline clearfix" id="timeline">
+		<header class="head">
+			<h1>Sweet Timeline</h1>
+			<span>between <a href="https://twitter.com/<?php echo $config['user_a']; ?>"><?php echo $config['user_a']; ?></a> <i>&hearts;</i> <a href="https://twitter.com/<?php echo $config['user_b']; ?>"><?php echo $config['user_b']; ?></a></span>
+		</header>
+		<section class="content">
+			<ol class="timeline clearfix" id="timeline">
 			
-		</ol>
+			</ol>
+		</section>
+		
 	</div>
 	
 	<script src="jquery.min.js"></script>
