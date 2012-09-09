@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $config['user_a']; ?> &hearts; <?php echo $config['user_b']; ?></title>
+	<title>Sweet</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-	<link rel="shortcut icon" href="img/favicon.png" />
+	<link rel="shortcut icon" href="img/favicon.ico" />
 	<link rel="apple-touch-icon" href="img/touch-icon.png" />
 </head>
 <body class="index">
