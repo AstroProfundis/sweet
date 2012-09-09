@@ -291,3 +291,81 @@ body {
 	top: 0;
 	right: 0;
 }
+
+/**
+ * Responsive Style 
+ */
+
+@media screen and (max-width: 960px) {
+
+	.container {
+		width: 100%;
+	}
+
+	.head {
+		margin: 0;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.head h1 {
+		margin: 0 0 10px 0;
+		display: block;
+		font-size: 24px;
+	}
+
+	.head .since {
+		display: none;
+	}
+
+	.timeline {
+		padding-top: 10px;
+	}
+
+	.timeline > li {
+		margin: 0 10px 30px;
+		float: none !important;
+		clear: none !important;
+		width: auto !important;
+	}
+
+	.timeline .pointer {
+		display: none;
+	}
+
+	.timeline .avatar {
+		top: -16px !important;
+		left: 0 !important;
+		right: auto !important;
+		float: left;
+	}
+
+	.timeline .avatar {
+		width: 32px;
+		height: 32px;
+	}
+
+	.timeline .avatar img {
+		width: 32px;
+		height: 32px;
+	}
+
+	.timeline .text {
+		padding: 0 10px 0 40px !important;
+	}
+
+	.timeline .photo img {
+		max-width: 100%;
+	}
+
+	.right .retweeted {
+		left: auto;
+		right: 1px;
+		background-position: 0 -15px;
+	}
+
+	.fork {
+		display: none;
+	}
+
+}
