@@ -4,7 +4,7 @@
 
 	// Check config
 	foreach ($config as $ck => $cv) {
-		if (empty($cv)) {
+		if ($cv === '') {
 			response(array(
 				'error' => '$config[\'' . $ck . '\'] is empty',
 			), 404);
