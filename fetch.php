@@ -7,7 +7,8 @@
 	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
 	$content = array();
 
-	/*
+	if ($config['local'] === TRUE) {
+
 		if (!is_null($max_id)) {
 			echo json_encode(array());exit;
 		}
@@ -27,7 +28,8 @@
 		krsort($content);
 
 		response(array_values($content));
-	*/
+
+	}
 
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
