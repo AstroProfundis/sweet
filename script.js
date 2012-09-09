@@ -1,35 +1,29 @@
 $(document).ready(function() {
 
 	var timeline = $('#timeline'),
+		loading = $('#loading'),
 		source = $('#entry-template').html(),
 		template = Handlebars.compile(source),
 		tweet = null;
 
-	var	filter_text = function(input) {
-		input = input.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig,"<a href='$1'>$1</a>");
-		input = input.replace(/(^|\s)@(\w+)/g, "$1<a href='https://twitter.com/$2'>@$2</a>");
-		input = input.replace(/(^|\s)#(\w+)/g, "$1<a href='https://search.twitter.com/search?q=%23$2'>#$2</a>");
-		return input;
-	};
-
 	var load_more = function() {
 		$(window).unbind('scroll.sweet');
-		
+
 		$.ajax({
 			url: 'fetch.php',
 			data: {
-				max_id: $("#timeline li:last-child").data('id')
+				max_id: timeline.children('li:last-child').data('id')
 			},
 			dataType: 'json',
 			success: function(json) {
-				if (json) {
+				if (json && json.length > 0) {
 					tweet = template(json);
-					timeline.append((tweet));
+					timeline.prepend(tweet);
+
+					$(window).bind('scroll.sweet', scroll_event);
 				} else {
-					// $spinner.html('<p>No more posts to show.</p>');
+					loading.html('No more tweets to show');
 				}
-				
-				$(window).bind('scroll.sweet', scroll_event);
 			}
 		});
 	}

@@ -1,8 +1,4 @@
-<?php
-
-	include_once('config.php');
-
-?>
+<?php include_once('config.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +9,15 @@
 <body class="index">
 	<div class="container">
 		<header class="head">
-			<h1>Sweet Timeline</h1>
+			<h1><a href="/">Sweet Timeline</a></h1>
 			<span>between <a href="https://twitter.com/<?php echo $config['user_a']; ?>"><?php echo $config['user_a']; ?></a> <i>&hearts;</i> <a href="https://twitter.com/<?php echo $config['user_b']; ?>"><?php echo $config['user_b']; ?></a></span>
 		</header>
 		<section class="content">
 			<ol class="timeline clearfix" id="timeline">
-			
+
 			</ol>
+			<div class="loading" id="loading"><img src="img/loading.gif" alt="Loading..." /></div>
 		</section>
-		
 	</div>
 	
 	<script src="jquery.min.js"></script>
@@ -29,14 +25,14 @@
 	<script src="script.js"></script>
 	<script id="entry-template" type="text/x-handlebars-template">
 		{{#each this}}
-		<li class="{{position}}}" data-id="{{id}}">
+		<li class="tweet {{position}}}" data-id="{{id}}">
 			<i class="pointer"></i>
 			<div class="content">
 			{{#if retweeted}}
 				<div class="avatar">
 					<a href="https://twitter.com/{{retweeted.user.screen_name}}" title="@{{retweeted.user.screen_name}}"><img src="{{retweeted.user.avatar}}" alt=""></a>
 				</div>
-				<div class="tweet">{{{retweeted.text}}}</div>
+				<div class="text">{{{retweeted.text}}}</div>
 				{{#if retweeted.photo}}
 				<div class="photo"><img src="{{retweeted.photo}}" /></div>
 				{{/if}}
@@ -48,7 +44,7 @@
 				<div class="avatar">
 					<a href="https://twitter.com/{{user.screen_name}}" title="@{{user.screen_name}}"><img src="{{user.avatar}}" alt=""></a>
 				</div>
-				<div class="tweet">{{{text}}}</div>
+				<div class="text">{{{text}}}</div>
 				{{#if photo}}
 				<div class="photo"><img src="{{photo}}" /></div>
 				{{/if}}

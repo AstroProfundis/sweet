@@ -7,6 +7,12 @@
 	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
 
 	// /*
+	sleep(3);
+
+	if (!is_null($max_id)) {
+		echo json_encode(array());exit;
+	}
+	
 	$data = json_decode(file_get_contents('data_1.json'), TRUE);
 
 	foreach ($data as $tweet) {

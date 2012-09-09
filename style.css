@@ -95,7 +95,6 @@ body {
 	margin-right: 10px;
 	font-size: 36px;
 	font-weight: bold;
-	color: #C35966;
 }
 
 .head span {
@@ -110,18 +109,15 @@ body {
 }
 
 .timeline {
-	
-	list-style: none;
 	padding-top: 50px;
-	position: relative;
 }
 
 .timeline > li {
+	position: relative;
 	float: left;
 	clear: left;
-	width: 436px;
 	margin-bottom: 50px;
-	position: relative;
+	width: 436px;
 	z-index: 2;
 }
 
@@ -130,7 +126,7 @@ body {
 	clear: right;
 }
 
-.timeline .pointer {
+.timeline li > .pointer {
 	background: url(img/sprites.png) 0 0 no-repeat;
 	width: 19px;
 	height: 15px;
@@ -213,7 +209,7 @@ body {
 	transform: rotate(390deg);
 }
 
-.timeline .tweet {
+.timeline .text {
 	margin-bottom: 10px;
 	padding: 0 10px 0 30px;
 	font-size: 16px;
@@ -221,7 +217,7 @@ body {
 	word-break: normal; 
 }
 
-.timeline .right .tweet {
+.timeline .right .text {
 	padding: 0 30px 0 10px;
 }
 
@@ -264,7 +260,8 @@ body {
 	background-position: -24px -15px;
 }
 
-#Spinner {
+.loading {
+	padding: 50px 0;
 	text-align: center;
-	padding: 10px 0;
+	background-color: #FFF0F0;
 }
