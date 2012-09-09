@@ -7,7 +7,7 @@
 	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
 	$content = array();
 
-	/*
+	// /*
 		// sleep(3);
 
 		if (!is_null($max_id)) {
@@ -29,7 +29,7 @@
 		krsort($content);
 
 		response(array_values($content));
-	*/
+	// */
 
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 

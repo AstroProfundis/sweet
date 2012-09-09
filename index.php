@@ -10,7 +10,7 @@
 	<div class="container">
 		<header class="head">
 			<h1>Sweet Timeline</h1>
-			<span>between <a href="https://twitter.com/<?php echo $config['user_a']; ?>"><?php echo $config['user_a']; ?></a> <i>&hearts;</i> <a href="https://twitter.com/<?php echo $config['user_b']; ?>"><?php echo $config['user_b']; ?></a></span>
+			<span>between <a href="https://twitter.com/<?php echo $config['user_a']; ?>"><?php echo $config['user_a']; ?></a> <i>&hearts;</i> <a href="https://twitter.com/<?php echo $config['user_b']; ?>"><?php echo $config['user_b']; ?></a> since <i><?php echo $config['since_time']; ?></i></span>
 			<a href="https://github.com/netputer/sweet" class="fork"><img src="img/fork.png" alt="Fork me on GitHub" /></a>
 		</header>
 		<section class="content">
