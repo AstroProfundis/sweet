@@ -72,7 +72,7 @@
 				}
 			}
 
-			$output['text'] = trim(str_replace($u_search, $u_replace, $tweet['text']));
+			$output['text'] = trim(str_replace($u_search, $u_replace, $output['text']));
 		}
 
 		// Construct retweeted status
