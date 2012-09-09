@@ -5,36 +5,36 @@
 	include_once('common.php');
 
 	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
+	$content = array();
 
-	// /*
-	sleep(3);
+	/*
+		// sleep(3);
 
-	if (!is_null($max_id)) {
-		echo json_encode(array());exit;
-	}
-	
-	$data = json_decode(file_get_contents('data_1.json'), TRUE);
+		if (!is_null($max_id)) {
+			echo json_encode(array());exit;
+		}
+		
+		$data = json_decode(file_get_contents('data_1.json'), TRUE);
 
-	foreach ($data as $tweet) {
-		$content[$tweet['id_str']] = construct($tweet);
-	}
+		foreach ($data as $tweet) {
+			$content[$tweet['id_str']] = construct($tweet);
+		}
 
-	$data = json_decode(file_get_contents('data_2.json'), TRUE);
+		$data = json_decode(file_get_contents('data_2.json'), TRUE);
 
-	foreach ($data as $tweet) {
-		$content[$tweet['id_str']] = construct($tweet, TRUE);
-	}
+		foreach ($data as $tweet) {
+			$content[$tweet['id_str']] = construct($tweet, TRUE);
+		}
 
-	krsort($content);
+		krsort($content);
 
-	echo json_encode(array_values($content));
-	exit;
-	// */
+		response(array_values($content));
+	*/
 
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
 	$post_data = array(
-		'screen_name' => $config['user_a'],
+		'scree1n_name' => $config['user_a'],
 		'count' => $config['count'],
 		'since_id' => $config['since_id'],
 		'include_rts' => true,
@@ -46,22 +46,36 @@
 		$post_data['max_id'] = $max_id;
 	}
 
-	$timeline_a = $connection->get('statuses/user_timeline', $post_data);
+	$timeline = $connection->get('statuses/user_timeline', $post_data);
+
+	if (isset($timeline['error'])) {
+		response(array(
+			'error' => $timeline['error'],
+		), 404);
+	}
+
+	if (!empty($timeline)) {
+		foreach ($timeline as $tweet) {
+			$content[$tweet['id_str']] = construct($tweet);
+		}
+	}
 
 	$post_data['screen_name'] = $config['user_b'];
 
-	$timeline_b = $connection->get('statuses/user_timeline', $post_data);
+	$timeline = $connection->get('statuses/user_timeline', $post_data);
 
-	$content = array();
-	
-	foreach ($timeline_a as $tweet) {
-		$content[$tweet['id_str']] = construct($tweet);
+	if (isset($timeline['error'])) {
+		response(array(
+			'error' => $timeline['error'],
+		), 404);
 	}
 
-	foreach ($timeline_b as $tweet) {
-		$content[$tweet['id_str']] = construct($tweet, TRUE);
+	if (!empty($timeline)) {
+		foreach ($timeline as $tweet) {
+			$content[$tweet['id_str']] = construct($tweet, TRUE);
+		}
 	}
 
 	krsort($content);
 
-	echo json_encode(array_values($content));
+	response(array_values($content));

@@ -2,6 +2,15 @@
 
 	date_default_timezone_set('Asia/Shanghai');
 
+	// Check config
+	foreach ($config as $ck => $cv) {
+		if (empty($cv)) {
+			response(array(
+				'error' => '$config[\'' . $ck . '\'] is empty',
+			), 404);
+		}
+	}
+
 	/**
 	 * Construct single Sweet, transform from Twitter API
 	 * @param array $tweet
@@ -84,4 +93,19 @@
 		$last = strlen($id) - 1;
 		$id[$last] = $id[$last] - 1;
 		return $id;
+	}
+
+	/**
+	 * HTTP Response
+	 * @param string $content
+	 * @param int $http_code
+	 */
+	function response($content, $http_code = 200) {
+		$text = $http_code === 404 ? 'OK' : 'Not Found';
+
+		header('Content-type: application/json');
+		header('HTTP/1.1 ' . $http_code . ' ' . $text);
+
+		echo json_encode($content);
+		exit;
 	}

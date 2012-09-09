@@ -31,8 +31,12 @@ $(document).ready(function() {
 					loader.html('No more tweets to show');
 				}
 			},
-			complete: function(XMLHttpRequest, textStatus) {
-				
+			error: function(XMLHttpRequest, textStatus) {
+				console.log(XMLHttpRequest);
+
+
+
+				loader.html('Error: ' + $.parseJSON(XMLHttpRequest.responseText).error);
 			}
 		});
 
@@ -50,21 +54,6 @@ $(document).ready(function() {
 	};
 
 	$(window).on('scroll.sweet', scroll_event);
-
-	$('#more').click(function() {
-		alert('100');
-	});
-
-	$('#more').on('click', function(e) {
-		alert('111');
-		// load_more();
-		// return false;
-	});
-
-	$('#loading').on('click', function(e) {
-		alert('222');
-		// ajax.abort();
-	});
 
 	load_more();
 
