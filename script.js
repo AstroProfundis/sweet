@@ -2,17 +2,15 @@ $(document).ready(function() {
 
 	var timeline = $('#timeline'),
 		loader = $('#loader'),
-		ajax,
 		source = $('#entry-template').html(),
 		template = Handlebars.compile(source),
-		tweet = null,
 		winheight = $(window).height();
 
 	var load_more = function() {
 
-		$(window).unbind('scroll.sweet');
+		$(window).off('scroll.sweet');
 
-		ajax = $.ajax({
+		$.ajax({
 			url: 'fetch.php',
 			data: {
 				max_id: $('#timeline li:last-child').data('id')
@@ -23,8 +21,7 @@ $(document).ready(function() {
 			},
 			success: function(json) {
 				if (json && json.length > 0) {
-					tweet = template(json);
-					timeline.append(tweet);
+					timeline.append(template(json));
 					loader.html(null);
 					$(window).bind('scroll.sweet', scroll_event);
 				} else {
@@ -32,10 +29,6 @@ $(document).ready(function() {
 				}
 			},
 			error: function(XMLHttpRequest, textStatus) {
-				console.log(XMLHttpRequest);
-
-
-
 				loader.html('Error: ' + $.parseJSON(XMLHttpRequest.responseText).error);
 			}
 		});

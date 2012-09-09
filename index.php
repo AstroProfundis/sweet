@@ -3,14 +3,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Sweet</title>
+	<title><?php echo $config['user_a']; ?> &hearts; <?php echo $config['user_b']; ?></title>
 	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class="index">
 	<div class="container">
 		<header class="head">
-			<h1><a href="/">Sweet Timeline</a></h1>
+			<h1>Sweet Timeline</h1>
 			<span>between <a href="https://twitter.com/<?php echo $config['user_a']; ?>"><?php echo $config['user_a']; ?></a> <i>&hearts;</i> <a href="https://twitter.com/<?php echo $config['user_b']; ?>"><?php echo $config['user_b']; ?></a></span>
+			<a href="https://github.com/netputer/sweet" class="fork"><img src="img/fork.png" alt="Fork me on GitHub" /></a>
 		</header>
 		<section class="content">
 			<ol class="timeline clearfix" id="timeline">

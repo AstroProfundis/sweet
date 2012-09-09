@@ -85,7 +85,7 @@
 	}
 
 	/**
-	 * Minus one from Twitter ID
+	 * Minus 1 from Twitter ID
 	 * @param string $id
 	 * @return string
 	 */
