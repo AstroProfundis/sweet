@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<title><?php echo $config['user_a']; ?> &hearts; <?php echo $config['user_b']; ?></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class="index">
