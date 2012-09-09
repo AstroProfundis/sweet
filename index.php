@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="apple-touch-icon" href="img/touch-icon.png" />
 </head>
 <body class="index">
 	<div class="container">
