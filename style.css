@@ -164,10 +164,12 @@ body {
 }
 
 .timeline .content {
-	background: #FFF;
 	padding: 10px 10px 10px 10px;
 	border: 1px solid #C35966;
 	border-radius: 3px;
+	background: #FFF;
+	-webkit-transition: background .2s ease-out;
+	transition: background .2s ease-out;
 }
 
 .timeline > li:hover .content {
@@ -261,12 +263,18 @@ body {
 }
 
 .loader {
-	height: 100px;
-	line-height: 100px;
+	padding: 10px 0;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
 	text-align: center;
 	background-color: #FFF0F0;
 }
 
-.loading {
-	background: #FFF0F0 url(img/loading.gif) no-repeat center center;
+.loader .loading {
+	display: block;
+	height: 30px;
+	line-height: 100px;
+	background: url(img/loading.gif) no-repeat center center;
+	overflow: hidden;
 }

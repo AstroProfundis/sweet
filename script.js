@@ -19,23 +19,20 @@ $(document).ready(function() {
 			},
 			dataType: 'json',
 			beforeSend: function(XMLHttpRequest) {
-				loader.addClass('loading');
+				loader.html('<span class="loading" id="loading">Loading</span>');
 			},
 			success: function(json) {
 				if (json && json.length > 0) {
 					tweet = template(json);
 					timeline.append(tweet);
-
+					loader.html(null);
 					$(window).bind('scroll.sweet', scroll_event);
 				} else {
 					loader.html('No more tweets to show');
 				}
 			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				loader.html('Something wrong: ' + errorThrown);
-			},
 			complete: function(XMLHttpRequest, textStatus) {
-				loader.removeClass('loading');
+				
 			}
 		});
 
@@ -53,6 +50,21 @@ $(document).ready(function() {
 	};
 
 	$(window).on('scroll.sweet', scroll_event);
+
+	$('#more').click(function() {
+		alert('100');
+	});
+
+	$('#more').on('click', function(e) {
+		alert('111');
+		// load_more();
+		// return false;
+	});
+
+	$('#loading').on('click', function(e) {
+		alert('222');
+		// ajax.abort();
+	});
 
 	load_more();
 

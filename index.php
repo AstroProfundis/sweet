@@ -25,7 +25,7 @@
 	<script src="script.js"></script>
 	<script id="entry-template" type="text/x-handlebars-template">
 		{{#each this}}
-		<li class="tweet {{position}}}" data-id="{{id}}">
+		<li class="{{position}}}" data-id="{{id}}">
 			<i class="pointer"></i>
 			<div class="content">
 			{{#if retweeted}}
