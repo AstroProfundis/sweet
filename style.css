@@ -217,6 +217,7 @@ body {
 
 .timeline .photo {
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 .timeline .photo img {
