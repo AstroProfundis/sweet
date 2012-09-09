@@ -16,7 +16,7 @@
 			<ol class="timeline clearfix" id="timeline">
 
 			</ol>
-			<div class="loading" id="loading"><img src="img/loading.gif" alt="Loading..." /></div>
+			<div class="loader" id="loader"></div>
 		</section>
 	</div>
 	

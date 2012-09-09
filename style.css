@@ -260,8 +260,13 @@ body {
 	background-position: -24px -15px;
 }
 
-.loading {
-	padding: 50px 0;
+.loader {
+	height: 100px;
+	line-height: 100px;
 	text-align: center;
 	background-color: #FFF0F0;
+}
+
+.loading {
+	background: #FFF0F0 url(img/loading.gif) no-repeat center center;
 }

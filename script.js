@@ -1,45 +1,58 @@
 $(document).ready(function() {
 
 	var timeline = $('#timeline'),
-		loading = $('#loading'),
+		loader = $('#loader'),
+		ajax,
 		source = $('#entry-template').html(),
 		template = Handlebars.compile(source),
-		tweet = null;
+		tweet = null,
+		winheight = $(window).height();
 
 	var load_more = function() {
+
 		$(window).unbind('scroll.sweet');
 
-		$.ajax({
+		ajax = $.ajax({
 			url: 'fetch.php',
 			data: {
-				max_id: timeline.children('li:last-child').data('id')
+				max_id: $('#timeline li:last-child').data('id')
 			},
 			dataType: 'json',
+			beforeSend: function(XMLHttpRequest) {
+				loader.addClass('loading');
+			},
 			success: function(json) {
 				if (json && json.length > 0) {
 					tweet = template(json);
-					timeline.prepend(tweet);
+					timeline.append(tweet);
 
 					$(window).bind('scroll.sweet', scroll_event);
 				} else {
-					loading.html('No more tweets to show');
+					loader.html('No more tweets to show');
 				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				loader.html('Something wrong: ' + errorThrown);
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+				loader.removeClass('loading');
 			}
 		});
+
 	}
 
 	var scroll_event = function() {
-		var wintop = $(window).scrollTop(),
-			docheight = $(document).height(),
-			winheight = $(window).height(),
-			scrolltrigger = 0.95;
 
-		if ((wintop / (docheight - winheight)) > scrolltrigger) {
+		var wintop = $(window).scrollTop(),
+			docheight = $(document).height();
+
+		if ((wintop / (docheight - winheight)) > 0.8) {
 			load_more();
 		}
+
 	};
 
-	$(window).bind('scroll.sweet', scroll_event);
+	$(window).on('scroll.sweet', scroll_event);
 
 	load_more();
 
