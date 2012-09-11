@@ -85,13 +85,18 @@
 	}
 
 	/**
-	 * Minus 1 from Twitter ID
+	 * Minus 1 from Twitter Status ID
+	 * TODO Real subtraction
 	 * @param string $id
 	 * @return string
 	 */
 	function minus_one($id) {
 		$last = strlen($id) - 1;
-		$id[$last] = $id[$last] - 1;
+		
+		if ($id[$last] !== '0') {
+			$id[$last] = intval($id[$last]) - 1;
+		}
+		
 		return $id;
 	}
 
