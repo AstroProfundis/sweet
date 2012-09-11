@@ -10,7 +10,7 @@
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
 	$post_data = array(
-		'scree1n_name' => $config['user_a'],
+		'screen_name' => $config['user_a'],
 		'count' => $config['count'],
 		'since_id' => $config['since_id'],
 		'include_rts' => true,
