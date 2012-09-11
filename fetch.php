@@ -7,30 +7,6 @@
 	$max_id = isset($_GET['max_id']) ? minus_one($_GET['max_id']) : NULL;
 	$content = array();
 
-	if ($config['local'] === TRUE) {
-
-		if (!is_null($max_id)) {
-			echo json_encode(array());exit;
-		}
-		
-		$data = json_decode(file_get_contents('data_1.json'), TRUE);
-
-		foreach ($data as $tweet) {
-			$content[$tweet['id_str']] = construct($tweet);
-		}
-
-		$data = json_decode(file_get_contents('data_2.json'), TRUE);
-
-		foreach ($data as $tweet) {
-			$content[$tweet['id_str']] = construct($tweet, TRUE);
-		}
-
-		krsort($content);
-
-		response(array_values($content));
-
-	}
-
 	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
 
 	$post_data = array(

@@ -10,5 +10,4 @@
 		'count' => 20,
 		'since_id' => '',
 		'since_time' => '',
-		'local' => FALSE,
 	);

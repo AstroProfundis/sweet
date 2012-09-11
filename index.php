@@ -27,7 +27,7 @@
 		</section>
 	</div>
 	
-	<script src="jquery.min.js"></script>
+	<script src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
 	<script src="handlebars.js"></script>
 	<script src="script.js"></script>
 	<script id="entry-template" type="text/x-handlebars-template">
